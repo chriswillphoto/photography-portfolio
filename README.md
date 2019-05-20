@@ -1,6 +1,6 @@
 # photo-portfolio
 
-> Photography portfolip v1
+> Photography portfolio
 
 ## Build Setup
 

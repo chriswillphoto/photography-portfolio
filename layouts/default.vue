@@ -1,8 +1,20 @@
 <template>
   <div>
+    <Nav />
     <nuxt />
   </div>
 </template>
+
+<script>
+import Nav from '~/components/Nav.vue'
+
+export default {
+  components: {
+    Nav,
+  }
+}
+</script>
+
 
 <style>
 html {
@@ -22,6 +34,7 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 .button--green {
