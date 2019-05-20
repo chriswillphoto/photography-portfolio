@@ -5,6 +5,10 @@ export const state = () => ({
 export const mutations = {
   expandMenu(state) {
     state.menuExpanded = true
+  },
+  closeMenu(state) {
+    console.log('test')
+    state.menuExpanded = false
   }
 }
 

@@ -1,6 +1,6 @@
 <template>
   <transition name='slide'>
-    <button v-if='!expanded' class="menu-toggle" @click="expandMenu">
+    <button v-if='!this.$store.state.menuExpanded' class="menu-toggle" @click="expandMenu">
       <div class="bar" aria-hidden="true"></div>
       <div class="bar" aria-hidden="true"></div>
       <div class="bar" aria-hidden="true"></div>
@@ -16,28 +16,33 @@
 export default {
   data() {
     return {
-      expanded: false
+      expanded: this.$store.state.menuExpanded
     }
   },
   methods: {
     expandMenu() {
-      this.expanded = true
+      this.expanded = this.menuStatus
     }
   },
   computed: {
     menuStatus() {
       const status = this.$store.state.menuExpanded
-      this.$store.commit('expandMenu')
+      if(status === false){
+        this.$store.commit('expandMenu')
+      }
+      return !status
     }
   }
 }
 </script>
 
 <style lang='scss'>
+  $primary-blue: hsl(228, 44%, 11%);
+
   .menu-toggle {
     height: 60px;
     width: 60px;
-    box-shadow: 1px 2px 4px 0 hsl(228, 44%, 11%);
+    box-shadow: 1px 2px 4px 0 $primary-blue;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -45,10 +50,10 @@ export default {
     bottom: 15px;
     left: 15px;
     border-radius: 50%;
-    background: grey;
+    background: $primary-blue;
     outline: none;
     border: none;
-    overflow: hidden;
+    // overflow: hidden;
 
     .bar {
       height: 6px;
@@ -56,10 +61,11 @@ export default {
       margin: 2px 0;
       background: white;
       // box-shadow: 4px -4px 0 1px #cc00FF, -4px 4px 0 1px #00FFFF;
+      transition: all 0.4s;
     }
 
     &:hover {
-      box-shadow: 1px 2px 4px 0 white;
+      // box-shadow: 1px 2px 4px 0 white;
 
       .bar::before {
         content: "";
@@ -93,21 +99,25 @@ export default {
   .navbar {
     position: fixed;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-end;
     background: hsl(228, 44%, 11%);
     height: 100vh;
-    width: 60px;
+    width: 600px;
     box-shadow: 2px 0 8px 0px #CC00FF;
-    justify-content: flex-end;
+    justify-content: center;
+    z-index: 1000;
   }
 
   .nav-link {
     color: white;
     text-decoration: none;
-    padding-right: 12px;
-    font-family: 'Playfair', Georgia, 'Times New Roman', Times, serif;
+    // padding-right: 12px;
+    width: 80%;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
     font-weight: 700;
     font-style: italic;
+    text-align: center;
 
     &:hover {
       font-style: normal;

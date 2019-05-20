@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class='app'>
     <Nav />
-    <nuxt />
+    <div class="container" @click="closeNav">
+      <nuxt />
+    </div>
   </div>
 </template>
 
@@ -11,12 +13,21 @@ import Nav from '~/components/Nav.vue'
 export default {
   components: {
     Nav,
+  },
+  methods: {
+    closeNav() {
+      if(this.$store.state.menuExpanded){
+        this.$store.commit('closeMenu')
+      }
+    }
   }
 }
 </script>
 
 
-<style>
+<style lang='scss'>
+$primary-blue: hsl(228, 44%, 11%);
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -35,6 +46,14 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.app {
+  background: $primary-blue;
 }
 
 .button--green {

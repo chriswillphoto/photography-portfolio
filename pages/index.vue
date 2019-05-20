@@ -1,28 +1,23 @@
 <template>
   <div class="homepage-container">
-    
+    <Banner image='https://res.cloudinary.com/dz7d2ezqb/image/upload/c_scale,q_81,w_1800/v1558329351/jesse-schoff-1603596-unsplash_qv9fag.jpg' :titles="{headline: 'Most Excellent',}"/>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import Banner from '~/components/Banner.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    Banner
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+
 
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
