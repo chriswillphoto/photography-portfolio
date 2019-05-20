@@ -1,7 +1,7 @@
 {
   "name": "photo-portfolio",
   "version": "1.0.0",
-  "description": "Photography portfolip v1",
+  "description": "Photography portfolio",
   "author": "Christopher Nekich",
   "private": true,
   "scripts": {
