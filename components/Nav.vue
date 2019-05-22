@@ -6,8 +6,11 @@
       <div class="bar" aria-hidden="true"></div>
     </button>
     <nav class='navbar' v-else>
+      <div class='links'>
+      <nuxt-link to='/' class='nav-link'>Home</nuxt-link>
       <nuxt-link to='/photographs' class='nav-link'>Photographs</nuxt-link>
       <nuxt-link to='/about' class='nav-link'>About</nuxt-link>
+      </div>
     </nav>
   </transition>
 </template>

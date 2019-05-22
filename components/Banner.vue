@@ -23,7 +23,7 @@ export default {
     justify-content: center;
     color: white;
     font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
-    animation: slowSlide 40s ease-in-out infinite alternate;
+    animation: slowSlide 40s linear infinite alternate;
 
     .headline {
       font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
