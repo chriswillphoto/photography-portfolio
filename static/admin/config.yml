@@ -9,12 +9,11 @@ media_library:
     cloud_name: dz7d2ezqb
     api_key: 626881519821723
     output_filename_only: false
-    config:
-      default_transformations:
-        -   - fetch_format: auto
-              width: 2000
-              quality: 80
-              crop: fill
+    default_transformations:
+      -   - fetch_format: auto
+            width: 2000
+            quality: 80
+            crop: fill
 collections:
   # - name: "blog" # Used in routes, e.g., /admin/collections/blog
   #   label: "Blog" # Used in the UI
@@ -80,6 +79,21 @@ collections:
   #   fields:
   #     - {label: Title, name: title, widget: string}
   #     - {label: Description, name: description, widget: string, required: false}
+  - label: "Active albums"
+    name: "albums"
+    format: 'json'
+    folder: 'content/active-albums'
+    create: true
+    fields:
+      - {label: Title, name: title, widget: string}
+      - label: 'Active Albums'
+        name: 'albums'
+        widget: 'relation'
+        collection: 'album'
+        searchFields: ["title"]
+        valueField: 'title'
+        displayFields: ['title', 'file', 'images']
+        multiple: true
   - label: "Album"
     name: "album"
     format: 'json'

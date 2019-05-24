@@ -7,7 +7,6 @@ export const mutations = {
     state.menuExpanded = true
   },
   closeMenu(state) {
-    console.log('test')
     state.menuExpanded = false
   }
 }
