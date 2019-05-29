@@ -4,10 +4,10 @@
 
 <script>
 import Banner from '~/components/Banner.vue'
-import activeAlbums from '~/content/active-albums/tests.json'
-import('~/content/albums/etest.json').then((data) => {
-  console.log(data.default)
-})
+import activeAlbums from '~/content/active-albums/albums.json'
+//import('~/content/albums/etest.json').then((data) => {
+  // console.log(data.default)
+//})
 
 export default {
   components: {
@@ -18,8 +18,13 @@ export default {
       albums: []
     }
   },
-  aSyncData(context){
-
+  asyncData(context){
+    return {
+      albums: activeAlbums.albums
+    }
+  },
+  mounted() {
+    console.log(activeAlbums.albums)
   }
 }
 </script>

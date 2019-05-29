@@ -94,7 +94,7 @@ collections:
           collection: 'album'
           searchFields: ["title"]
           valueField: 'title'
-          displayFields: ['title', 'file', 'images']
+          displayFields: ['title', 'images']
           multiple: true
   - label: "Album"
     name: "album"
