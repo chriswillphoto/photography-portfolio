@@ -1,5 +1,6 @@
 export const state = () => ({
   menuExpanded: false,
+  albums: {},
 })
 
 export const mutations = {
@@ -8,6 +9,11 @@ export const mutations = {
   },
   closeMenu(state) {
     state.menuExpanded = false
+  },
+  loadAlbums(state, albums) {
+    state.albums = {
+      albumData: albums
+    }
   }
 }
 

@@ -18,9 +18,20 @@ export default {
       albums: []
     }
   },
-  asyncData(context){
-    return {
-      albums: activeAlbums.albums
+  async asyncData({ $axios, params, env, store }){
+
+    if(!store.state.albums.albumData){
+      let albumArray = []
+      await activeAlbums.albums.forEach(album => {
+
+        import(`~/content/albums/${album.toLowerCase().replace(' ', '-')}.json`).then((data) => {
+          let fetchedAlbum = {title: album, images: data.images}
+          albumArray.push(fetchedAlbum)
+        })
+
+      });
+      console.log('ran')
+      store.commit('loadAlbums', albumArray)
     }
   },
   mounted() {
